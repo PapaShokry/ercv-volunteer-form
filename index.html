@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#b5122b">
+  <title>الهلال الأحمر المصري | تسجيل المتطوعين</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --red:#b5122b; --red-dark:#8e0d21; --ink:#252525; --muted:#6b6870; --line:#e5dfe1; --soft:#fff5f6; --ok:#176b45; --danger:#a3152c; }
+    * { box-sizing:border-box; }
+    html,body { margin:0; min-height:100%; background:#faf8f8; color:var(--ink); }
+    body { font-family:Amiri,"Times New Roman",serif; font-size:18px; line-height:1.55; }
+    button,input,select,textarea { font:inherit; }
+    button { cursor:pointer; }
+    .shell { width:min(100%,760px); margin:0 auto; padding:0 16px 34px; }
+    header { background:#fff; border-bottom:4px solid var(--red); padding:22px 0 16px; }
+    .brand { display:flex; align-items:center; gap:12px; }
+    .brand h1 { margin:0; color:var(--red); font-size:24px; line-height:1.15; }
+    .brand p { margin:3px 0 0; font-family:"Times New Roman",serif; font-size:14px; color:var(--muted); direction:ltr; text-align:right; }
+    .logo-img { max-height:52px; max-width:180px; object-fit:contain; display:none; }
+    main { padding-top:18px; }
+    .intro { margin:0 0 16px; color:var(--muted); }
+    .steps { display:flex; gap:5px; margin:0 0 18px; padding:0; list-style:none; }
+    .steps li { flex:1; text-align:center; font-size:14px; color:#8c8588; padding:7px 2px; border-bottom:3px solid var(--line); }
+    .steps li.active { color:var(--red); border-color:var(--red); font-weight:700; }
+    .card { background:#fff; border:1px solid var(--line); border-radius:14px; padding:18px; box-shadow:0 4px 15px rgba(75,20,30,.04); }
+    .card h2 { color:var(--red-dark); margin:0 0 5px; font-size:23px; }
+    .card h3 { color:var(--red-dark); margin:20px 0 8px; font-size:20px; border-bottom:1px solid var(--line); padding-bottom:4px; }
+    .hint { color:var(--muted); margin:0 0 14px; font-size:16px; }
+    .notice { background:var(--soft); border-right:4px solid var(--red); padding:10px 12px; margin:12px 0; font-size:16px; }
+    .notice.privacy { background:#fffaf0; border-color:#b57919; }
+    .field { margin:0 0 14px; }
+    label { display:block; font-weight:700; margin-bottom:4px; }
+    .required { color:var(--red); }
+    input,select,textarea { width:100%; border:1px solid #cfc7ca; border-radius:8px; background:#fff; color:var(--ink); padding:10px 11px; min-height:46px; }
+    textarea { min-height:90px; resize:vertical; }
+    input:focus,select:focus,textarea:focus,button:focus-visible { outline:3px solid rgba(181,18,43,.24); outline-offset:1px; border-color:var(--red); }
+    .two { display:grid; gap:12px; }
+    .radio-row { display:flex; gap:14px; flex-wrap:wrap; }
+    .radio-row label,.check-label { display:flex; align-items:center; gap:7px; font-weight:400; }
+    .radio-row input,.check-label input { width:auto; min-height:auto; accent-color:var(--red); }
+    .actions { display:flex; gap:10px; margin-top:20px; }
+    .actions button { flex:1; min-height:48px; border-radius:9px; border:1px solid var(--red); padding:9px 13px; }
+    .primary { background:var(--red); color:#fff; }
+    .secondary { background:#fff; color:var(--red); }
+    button:disabled { opacity:.55; cursor:not-allowed; }
+    .error { color:var(--danger); font-size:16px; margin:8px 0 0; min-height:22px; }
+    .global-error { background:#fff0f1; color:var(--danger); border:1px solid #ebacb5; border-radius:8px; padding:10px; margin-bottom:14px; }
+    .hidden { display:none !important; }
+    .summary { margin:14px 0; border:1px solid var(--line); border-radius:9px; overflow:hidden; }
+    .summary-row { display:grid; grid-template-columns:42% 58%; border-bottom:1px solid var(--line); }
+    .summary-row:last-child { border-bottom:0; }
+    .summary-row > * { padding:8px 10px; margin:0; overflow-wrap:anywhere; }
+    .summary-row dt { background:#fff8f8; font-weight:700; }
+    .summary-row dd { direction:rtl; }
+    .receipt { text-align:center; padding:12px 2px; }
+    .receipt .check { color:var(--ok); font-size:48px; line-height:1; }
+    .receipt-code { font-family:"Times New Roman",serif; direction:ltr; background:#f6f2f2; border-radius:8px; padding:10px; font-size:22px; letter-spacing:.05em; overflow-wrap:anywhere; }
+    .busy { color:var(--red-dark); font-size:16px; margin-top:10px; }
+    .identity-analysis { background:#fffaf0; border:1px solid #e5c987; border-radius:9px; padding:10px 12px; margin:-4px 0 14px; font-size:16px; }
+    .identity-analysis strong { color:var(--red-dark); }
+    .honeypot { position:absolute !important; left:-10000px !important; width:1px !important; height:1px !important; opacity:0 !important; }
+    footer { text-align:center; color:var(--muted); font-size:14px; margin-top:18px; }
+    @media (min-width:600px) { .two { grid-template-columns:1fr 1fr; } .card { padding:25px; } }
+  </style>
+</head>
+<body>
+  <script>
+    // 2026-11-16 added: runs immediately, independent of the main app
+    // script below. If the page is still stuck on "جارٍ تحميل..." after
+    // 12 seconds (the main script never ran, hung, or threw before
+    // showing anything), reveal a plain, actionable message instead of
+    // leaving a silent blank/loading page. Cleared automatically the
+    // moment the main script reaches its first real render.
+    window.__ercvWatchdog = setTimeout(function () {
+      try {
+        var loading = document.getElementById('loading');
+        var stuck = document.getElementById('stuckNotice');
+        if (loading && !loading.classList.contains('hidden') && stuck) {
+          loading.classList.add('hidden');
+          stuck.classList.remove('hidden');
+        }
+      } catch (ignore) {}
+    }, 12000);
+    // 2026-11-16 added: if the main app script throws before it finishes
+    // setting itself up (so its own error handling never gets a chance to
+    // run), show the same actionable message instead of a silent blank
+    // page. Harmless no-op once the app is running normally.
+    window.addEventListener('error', function () {
+      try {
+        var loading = document.getElementById('loading');
+        var stuck = document.getElementById('stuckNotice');
+        var appVisible = document.getElementById('stage1') && !document.getElementById('stage1').classList.contains('hidden');
+        if (stuck && !appVisible && (!loading || !loading.classList.contains('hidden'))) {
+          if (loading) loading.classList.add('hidden');
+          stuck.classList.remove('hidden');
+        }
+      } catch (ignore) {}
+    });
+  </script>
+  <header><div class="shell"><div class="brand"><div><h1 id="brandTitle">الهلال الأحمر المصري</h1><p>EGYPTIAN RED CRESCENT</p></div><img id="logo" class="logo-img" alt="" aria-hidden="true"></div></div></header>
+  <noscript>
+    <main class="shell"><section class="card"><h2>يلزم تفعيل JavaScript</h2><p class="hint">هذا النموذج يحتاج تفعيل JavaScript في المتصفح لإتمام التسجيل. من فضلك فعّل JavaScript ثم أعد تحميل الصفحة.</p></section></main>
+  </noscript>
+  <main class="shell" id="app">
+    <p id="intro" class="intro">تسجيل المشاركة التطوعية والحضور</p>
+    <ol id="steps" class="steps" aria-label="مراحل التسجيل"><li data-step="1">الهوية</li><li data-step="2">البيانات</li><li data-step="3">المراجعة</li><li data-step="4">الإيصال</li></ol>
+    <div id="appError" class="global-error hidden" role="alert"></div>
+    <section id="loading" class="card"><p>جارٍ تحميل نموذج التسجيل…</p></section>
+    <!--
+      2026-11-16 added: a watchdog that fires if the page never finishes
+      loading (the "جارٍ تحميل..." box stays visible with nothing else
+      shown). This is the exact symptom reported as "blank/stuck on
+      iPhone." It changes no form logic — it only shows a visible,
+      actionable message instead of silence if startup never completes,
+      and cancels itself the instant the form appears normally.
+    -->
+    <section id="stuckNotice" class="card hidden" role="alert">
+      <h2>تعذر تحميل النموذج</h2>
+      <p class="hint">يبدو أن الصفحة لم تكتمل تحميلها. على آيفون، جرّب ما يلي:</p>
+      <p class="hint">١) تأكد من تفعيل JavaScript وملفات تعريف الارتباط (Cookies) في إعدادات المتصفح.<br>٢) إن كنت تستخدم وضع التصفح الخاص (Private Browsing)، أغلقه وأعد المحاولة.<br>٣) جرّب فتح الرابط مباشرة في Safari بدل تطبيق آخر.</p>
+      <div class="actions"><button id="stuckReloadBtn" class="primary" type="button">إعادة تحميل الصفحة</button></div>
+    </section>
+    <section id="maintenance" class="card hidden" role="status" aria-labelledby="maintenanceTitle"><h2 id="maintenanceTitle">التسجيل متوقف مؤقتًا</h2><p id="maintenanceMessage" class="hint">لن نستقبل أو نحفظ أي بيانات جديدة عبر هذا الرابط الآن. يرجى العودة لاحقًا بعد إعلان إعادة فتح التسجيل.</p></section>
+    <section id="stage1" class="card hidden" aria-labelledby="stage1Title">
+      <h2 id="stage1Title">مطابقة بيانات الهوية</h2><p class="hint">نحتاج هذه البيانات لمطابقة سجلك. عند وجود سجل واحد سنعرض بياناته ونملأها تلقائيًا لتراجعها.</p>
+      <div class="notice">نستخدم رقم الهوية لمطابقة سجلك. يُسجل حضور السجل المطابق دون تعديل مباشرةً لليوم المختار. المتطوع الجديد أو تعديل البيانات ينتظر موافقة المشرف.</div>
+      <div class="field"><label>نوع الهوية <span class="required">*</span></label><p id="identityRule" class="hint">الرقم القومي المصري متاح للمصريين فقط. لغير المصريين يجب استخدام جواز السفر.</p><div class="radio-row"><label><input type="radio" name="identityType" value="NATIONAL_ID" aria-describedby="identityRule"> الرقم القومي المصري (للمصريين فقط)</label><label><input type="radio" name="identityType" value="PASSPORT" aria-describedby="identityRule"> جواز السفر</label></div><p class="error" data-error="identityType"></p></div>
+      <div class="field"><label for="identityNumber">رقم الهوية / رقم البطاقة <span class="required">*</span></label><input id="identityNumber" autocomplete="off" maxlength="32"><div id="identityAnalysis" class="identity-analysis hidden" aria-live="polite"></div><p class="error" data-error="identityNumber"></p></div>
+      <div id="nationalityWrap" class="field hidden"><label for="nationality">الجنسية <span class="required">*</span></label><input id="nationalitySearch" type="search" placeholder="ابحث عن الجنسية" aria-label="ابحث عن الجنسية" maxlength="80" autocomplete="off" disabled><select id="nationality" autocomplete="country-name" disabled><option value="">اختر الجنسية</option></select><p class="error" data-error="nationality"></p></div>
+      <div id="visaWrap" class="field hidden"><label>صلاحية التأشيرة <span class="required">*</span></label><div class="radio-row"><label><input type="radio" name="visaValid" value="YES" disabled> سارية</label><label><input type="radio" name="visaValid" value="NO" disabled> غير سارية</label></div><p class="error" data-error="visaValid"></p></div>
+      <div id="passportDetails" class="hidden"><div class="two"><div class="field"><label for="birthDate">تاريخ الميلاد <span class="required">*</span></label><input id="birthDate" type="date"><p class="error" data-error="birthDate"></p></div><div class="field"><label for="sex">النوع <span class="required">*</span></label><select id="sex"><option value="">اختر النوع</option><option value="MALE">ذكر</option><option value="FEMALE">أنثى</option></select><p class="error" data-error="sex"></p></div></div><div class="field"><label for="birthGovernorate">محافظة الميلاد / المنطقة <span class="required">*</span></label><input id="birthGovernorate" maxlength="80" placeholder="لغير المصريين يمكن إدخال المنطقة أو الإقليم"><p class="error" data-error="birthGovernorate"></p></div></div>
+      <input class="honeypot" id="hp1" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div class="actions"><button id="beginBtn" class="primary" type="button">التالي</button></div><p id="beginBusy" class="busy hidden" aria-live="polite">جارٍ التحقق…</p>
+    </section>
+    <section id="stage2" class="card hidden" aria-labelledby="stage2Title">
+      <h2 id="stage2Title">بيانات الحضور والتسجيل</h2><p id="existingNote" class="notice privacy hidden">تم العثور على سجلك، وملأنا بياناتك المحفوظة تلقائيًا. يمكنك إرسال الحضور كما هي، أو اختيار «تعديل البيانات» لطلب تصحيح. لن تتغير بيانات السجل قبل موافقة المشرف.</p>
+      <div class="field"><label for="date">تاريخ الحضور <span class="required">*</span></label><input id="date" type="date"><p class="error" data-error="date"></p></div>
+      <div class="field"><label for="specialty">التخصص <span class="required">*</span></label><select id="specialty"><option value="">اختر التخصص</option></select><p id="matchedSpecialtyHint" class="hint hidden">التخصص مرتبط بالسجل الحالي ولا يُغيّر هنا لمنع إنشاء سجل مكرر. لطلب تغيير التخصص اكتب ذلك في الملاحظات للمشرف.</p><p class="error" data-error="specialty"></p></div>
+      <div class="field"><label for="fullName">الاسم بالكامل <span class="required">*</span></label><input id="fullName" maxlength="160" autocomplete="name"><p class="error" data-error="fullName"></p></div>
+      <div id="contactPhoneWrap" class="field hidden"><label for="contactPhone">رقم الهاتف المحفوظ</label><input id="contactPhone" type="tel" inputmode="tel" maxlength="16"><p class="error" data-error="contactPhone"></p></div>
+      <div id="correctionWrap" class="field hidden"><label class="check-label"><input id="requestCorrection" type="checkbox"> تعديل البيانات</label><p class="hint">فعّل هذا الخيار لتعديل أو استكمال البيانات. تُرسل القيم المقترحة للمراجعة، ويُحدّث السجل نفسه فقط بعد اعتماد المشرف دون إنشاء سجل جديد.</p></div>
+      <div id="profileFields">
+        <h3>بيانات التسجيل</h3>
+        <div class="field"><label for="membership">هل لديك عضوية؟ <span class="required">*</span></label><div class="radio-row"><label><input type="radio" name="hasMembership" value="true"> نعم</label><label><input type="radio" name="hasMembership" value="false"> لا</label></div><p class="error" data-error="hasMembership"></p></div>
+        <div id="membershipDetails" class="hidden"><div class="two"><div class="field"><label for="membershipNumber">رقم العضوية <span class="required">*</span></label><input id="membershipNumber" maxlength="60"><p class="error" data-error="membershipNumber"></p></div><div class="field"><label for="issuingCenter">الفرع الذي اصدر العضوية <span class="required">*</span></label><select id="issuingCenter"><option value="">اختر الفرع الذي اصدر العضوية</option></select><p class="error" data-error="issuingCenter"></p></div></div></div>
+        <div class="two"><div class="field"><label for="residenceGovernorate">محافظة الإقامة <span class="required profile-required">*</span></label><select id="residenceGovernorate"><option value="">اختر المحافظة</option></select><p class="error" data-error="residenceGovernorate"></p></div><div class="field"><label for="currentGovernorate">المحافظة الحالية <span class="required profile-required">*</span></label><select id="currentGovernorate"><option value="">اختر المحافظة</option></select><p class="error" data-error="currentGovernorate"></p></div></div>
+        <div class="field"><label for="missionName">المهمة <span class="required">*</span></label><select id="missionName"><option value="">اختر المهمة</option></select><input id="missionOther" class="hidden" maxlength="120" placeholder="اكتب المهمة الأخرى"><p class="error" data-error="missionName"></p></div>
+        <div class="field"><label for="whatsapp">رقم واتساب <span class="required">*</span></label><input id="whatsapp" type="tel" inputmode="tel" maxlength="16" autocomplete="tel"><p class="hint">أدخل رقمًا مصريًا يبدأ بـ010 أو 011 أو 012 أو 015، أو رقمًا دوليًا يبدأ بـ+ ورمز الدولة.</p><p class="error" data-error="whatsapp"></p></div>
+        <div class="field"><label for="whatsappConfirm">تأكيد رقم واتساب <span class="required">*</span></label><input id="whatsappConfirm" type="tel" inputmode="tel" maxlength="16"><p class="error" data-error="whatsappConfirm"></p></div>
+        <div class="field"><label for="notes">ملاحظات (اختياري)</label><textarea id="notes" maxlength="1000"></textarea><p class="error" data-error="notes"></p></div>
+      </div>
+      <input class="honeypot" id="hp2" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div class="actions"><button id="back1Btn" class="secondary" type="button">السابق</button><button id="reviewBtn" class="primary" type="button">مراجعة البيانات</button></div><p id="stage2Busy" class="busy hidden" aria-live="polite">جارٍ تجهيز المراجعة…</p>
+    </section>
+    <section id="stage3" class="card hidden" aria-labelledby="stage3Title"><h2 id="stage3Title">مراجعة وإرسال</h2><p class="hint">راجع بيانات الحضور والبيانات المعروضة. أي تصحيح مقترح سيبقى معلقًا حتى موافقة المشرف.</p><dl id="summary" class="summary"></dl><div class="actions"><button id="back2Btn" class="secondary" type="button">السابق</button><button id="submitBtn" class="primary" type="button">إرسال الطلب</button></div><p id="submitBusy" class="busy hidden" aria-live="polite">جارٍ إرسال الطلب… لا تضغط مرة أخرى.</p></section>
+    <section id="stage4" class="card hidden" aria-labelledby="stage4Title"><div class="receipt"><div class="check" aria-hidden="true">✓</div><h2 id="stage4Title">تم استلام طلبك</h2><p id="receiptMessage"></p><p>حالة الطلب: <strong id="receiptStatus">معلق حتى اعتماد المشرف</strong></p><p>رقم الإيصال:</p><p id="receiptCode" class="receipt-code"></p><button id="restartBtn" class="secondary" type="button">بدء طلب جديد</button></div></section>
+    <footer>الحضور دون تعديل يُسجل مباشرة؛ المتطوع الجديد وتعديل البيانات بعد موافقة المشرف.</footer>
+  </main>
+<script>
+(function () {
+  'use strict';
+  // Reaching this line proves the main app script actually started
+  // executing, so the "page never loaded at all" watchdog above is no
+  // longer needed — cancel it. (A later hang, e.g. a stuck server call,
+  // is instead caught by callServer's own 25-second timeout.)
+  try { if (window.__ercvWatchdog) clearTimeout(window.__ercvWatchdog); } catch (ignore) {}
+  var state = { config:null, identity:null, identityDetails:null, existing:false, matchedProfile:null, sessionToken:null, requestId:null, submissionSnapshot:null, submissionLocked:false, stage:0, busy:false };
+  var $ = function (id) { return document.getElementById(id); };
+  var all = function (selector) { return Array.prototype.slice.call(document.querySelectorAll(selector)); };
+  // 2026-11-16: this is the static (non-Apps-Script-hosted) copy of the
+  // page, served from GitHub Pages so iPhones load it directly with no
+  // Google wrapper involved. It talks to the SAME unchanged Apps Script
+  // backend over a plain network request (fetch) instead of
+  // google.script.run, which only exists inside Apps Script-hosted pages.
+  // Every function it calls (ercvBootstrap/ercvBegin/ercvSubmit) is the
+  // exact same server-side code, with the exact same validation, locking
+  // and approval workflow — this only changes how the request reaches it.
+  var ERCV_API_URL = 'https://script.google.com/macros/s/AKfycbwnAjinLNkQeKo4udrFY1dixVYjU4L1x7tB5uesIVGBtKvI17644KCGzhjGlwifSlMKDA/exec';
+  function callServer(name, args) {
+    var call = fetch(ERCV_API_URL, {
+      method: 'POST',
+      // text/plain avoids a CORS "preflight" request, which Apps Script
+      // web apps don't reliably answer; the server still parses this as
+      // JSON (see doPost in Code.gs).
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify({ fn: name, args: args })
+    }).then(function (res) {
+      if (!res.ok) throw new Error('تعذر الاتصال بالخدمة (' + res.status + ').');
+      return res.json();
+    }).then(function (j) {
+      if (!j || j.ok !== true) throw new Error((j && j.error) || 'تعذر الاتصال بالخدمة.');
+      return j.result;
+    });
+    var timeout = new Promise(function (resolve, reject) {
+      setTimeout(function () { reject(new Error('انتهت مهلة الاتصال بالخدمة. تحقق من اتصال الإنترنت وأعد المحاولة.')); }, 25000);
+    });
+    return Promise.race([call, timeout]);
+  }
+  function text(value) { return value == null ? '' : String(value); }
+  function normalize(value) { return text(value).trim().replace(/[\u0660-\u0669]/g, function (c) { return String(c.charCodeAt(0) - 1632); }).replace(/[\u06F0-\u06F9]/g, function (c) { return String(c.charCodeAt(0) - 1776); }); }
+  function getRadio(name) { var el = document.querySelector('input[name="' + name + '"]:checked'); return el ? el.value : ''; }
+  function dateParts(value) { var m=/^(\d{4})-(\d{2})-(\d{2})$/.exec(value||''); if(!m)return null; var y=+m[1],mo=+m[2],d=+m[3],dt=new Date(Date.UTC(y,mo-1,d)); return dt.getUTCFullYear()===y&&dt.getUTCMonth()===mo-1&&dt.getUTCDate()===d?{y:y,m:mo,d:d}:null; }
+  function ageFor(value) { var p=dateParts(value), t=dateParts(state.config&&state.config.today); if(!p||!t)return null; return t.y-p.y-(t.m<p.m||(t.m===p.m&&t.d<p.d)?1:0); }
+  function govName(code) { var map=state.config&&state.config.idGovernorates||{}; return map[code]||''; }
+  function localIdentityDetails() {
+    var type=getRadio('identityType'), n=normalize($('identityNumber').value).replace(/[\s-]+/g,''), result=null, error='';
+    if(type==='NATIONAL_ID' && /^\d{14}$/.test(n)) { var century=n.charAt(0)==='2'?1900:n.charAt(0)==='3'?2000:0, year=century?String(century+Number(n.slice(1,3))):'', dob=year?year+'-'+n.slice(3,5)+'-'+n.slice(5,7):''; var gov=govName(n.slice(7,9)), sex=(+n.charAt(12)%2)?'MALE':'FEMALE', age=ageFor(dob); if(!century||!dateParts(dob)){error='تاريخ الميلاد في الرقم القومي غير صحيح.';}else if(age<0){error='تاريخ الميلاد لا يمكن أن يكون في المستقبل.';}else if(!gov){error='كود محافظة الميلاد غير معروف.';}else result={identityDetailsVersion:1,birthDate:dob,sex:sex,birthGovernorate:gov,age:age};
+      if(!result && !error) error='تعذر قراءة تفاصيل الرقم القومي.';
+    } else if(type==='PASSPORT') { var dob=$('birthDate').value, sex=$('sex').value, gov=$('birthGovernorate').value.trim(), age=ageFor(dob); if(!dateParts(dob))error='أدخل تاريخ ميلاد صحيحًا.';else if(age<0)error='تاريخ الميلاد لا يمكن أن يكون في المستقبل.';else if(['MALE','FEMALE'].indexOf(sex)<0)error='اختر الجنس.';else if(!gov || gov.length>80)error='أدخل محافظة الميلاد أو المنطقة (حتى 80 حرفًا).';else result={identityDetailsVersion:1,birthDate:dob,sex:sex,birthGovernorate:gov,age:age}; }
+    state.identityDetails=result;
+    var box=$('identityAnalysis');
+    if(result){
+      box.textContent=(type==='NATIONAL_ID'?'قراءة مبدئية من الرقم القومي:':'بيانات الميلاد التي أدخلتها:')+'\nتاريخ الميلاد: '+result.birthDate+'\nالعمر: '+result.age+' سنة\nالجنس: '+(result.sex==='MALE'?'ذكر':'أنثى')+'\n'+(type==='NATIONAL_ID'?'محافظة تسجيل الميلاد: ':'محافظة الميلاد / المنطقة: ')+text(result.birthGovernorate)+'\nهذه قراءة مبدئية وليست تحققًا رسميًا. محافظة الميلاد ليست محل الإقامة الحالي.';
+      box.style.whiteSpace='pre-line';
+      box.classList.remove('hidden');
+    }else{box.textContent=error;box.classList.toggle('hidden',!error);}
+    return {result:result,error:error};
+  }
+  function resetIdentityConfirmation() { state.identityDetails=null; }
+  function setError(key, message) { var el = document.querySelector('[data-error="' + key + '"]'); if (el) el.textContent = message || ''; }
+  function clearErrors() { all('.error').forEach(function (el) { el.textContent = ''; }); $('appError').textContent = ''; $('appError').classList.add('hidden'); }
+  function appError(message, retry) { var box = $('appError'); box.textContent = text(message || 'حدث خطأ غير متوقع.'); if (retry) { var b = document.createElement('button'); b.type='button'; b.className='secondary'; b.textContent='إعادة المحاولة'; b.style.marginTop='8px'; b.onclick=retry; box.appendChild(document.createTextNode(' ')); box.appendChild(b); } box.classList.remove('hidden'); }
+  function setStage(n) { state.stage=n; all('[data-step]').forEach(function (el) { el.classList.toggle('active', Number(el.getAttribute('data-step')) === n); }); ['stage1','stage2','stage3','stage4'].forEach(function (id,i) { $(id).classList.toggle('hidden', i+1 !== n); }); window.scrollTo(0,0); }
+  function populate(selectId, values, placeholder) { var s=$(selectId); while (s.options.length>1) s.remove(1); (Array.isArray(values)?values:[]).forEach(function (v) { var o=document.createElement('option'); o.value=text(v); o.textContent=text(v); s.appendChild(o); }); s.options[0].textContent=placeholder; }
+  function issuingChoices(values) { var seen={}; return ['مدينة نصر - المركز العام','زينهم'].concat(Array.isArray(values)?values:[]).filter(function(v){ v=text(v).trim(); if(!v || seen[v]) return false; seen[v]=true; return true; }); }
+  function identityValues() { var type=getRadio('identityType'), number=normalize($('identityNumber').value).toUpperCase().replace(/[\s-]+/g,''), nationality=$('nationality').value; return { identityType:type, identityNumber:number, nationality:nationality || (type==='NATIONAL_ID'?'مصري':''), visaValid:type==='NATIONAL_ID'?'NA':getRadio('visaValid') }; }
+  function validateIdentity() {
+    clearErrors(); var v=identityValues(), ok=true;
+    if (['NATIONAL_ID','PASSPORT'].indexOf(v.identityType)<0) { setError('identityType','اختر نوع الهوية.'); ok=false; }
+    if (!state.config || state.config.nationalities.indexOf(v.nationality)<0) { setError('nationality','اختر الجنسية من القائمة.'); ok=false; }
+    if (v.identityType==='NATIONAL_ID' && v.nationality!=='مصري') { setError('identityType','الرقم القومي المصري متاح للمصريين فقط. اختر جواز السفر لغير المصريين.'); ok=false; }
+    if (!v.identityNumber) { setError('identityNumber','أدخل رقم الهوية.'); ok=false; }
+    else if ((v.identityType==='NATIONAL_ID' && !/^[23]\d{13}$/.test(v.identityNumber)) || (v.identityType==='PASSPORT' && !/^[A-Z0-9]{4,20}$/.test(v.identityNumber))) { setError('identityNumber','صيغة رقم الهوية غير صحيحة.'); ok=false; }
+    if (v.identityType==='PASSPORT' && !['YES','NO'].includes(v.visaValid)) { setError('visaValid','اختر حالة التأشيرة.'); ok=false; }
+    var detail=localIdentityDetails(); if(!detail.result){ if(v.identityType==='NATIONAL_ID' && !/^\d{14}$/.test(v.identityNumber)){} else setError(v.identityType==='PASSPORT'?'birthDate':'identityNumber',detail.error||'أدخل تفاصيل هوية صحيحة.'); ok=false; }
+    return ok ? v : null;
+  }
+  function phone(value) { var v=normalize(value).replace(/[ ()-]/g,''); if (/^01(0|1|2|5)\d{8}$/.test(v)) return '+20'+v.slice(1); if (/^\+[1-9]\d{7,14}$/.test(v)) return v; return ''; }
+  function requiredProfile() { return !state.existing || $('requestCorrection').checked; }
+  function syncProfileEdit() {
+    var editable=!state.existing || $('requestCorrection').checked;
+    ['fullName','contactPhone','membershipNumber','issuingCenter','whatsapp','whatsappConfirm'].forEach(function(id){$(id).readOnly=!editable;});
+    ['currentGovernorate','residenceGovernorate','issuingCenter'].forEach(function(id){$(id).disabled=!editable;});
+    all('input[name="hasMembership"]').forEach(function(el){el.disabled=!editable;});
+    $('specialty').disabled=state.existing;
+    $('membershipDetails').classList.toggle('hidden',getRadio('hasMembership')!=='true');
+    all('.profile-required').forEach(function(el){el.classList.toggle('hidden',!requiredProfile());});
+  }
+  function displayPhone(value) { var v=text(value); return /^\+20(10|11|12|15)\d{8}$/.test(v) ? '0'+v.slice(3) : v; }
+  function applyMatchedProfile(profile) {
+    state.matchedProfile=profile || null;
+    all('#currentGovernorate option[data-stored], #residenceGovernorate option[data-stored], #issuingCenter option[data-stored]').forEach(function(option){option.remove();});
+    ['specialty','fullName','contactPhone','membershipNumber','issuingCenter','residenceGovernorate','currentGovernorate','missionName','missionOther','whatsapp','whatsappConfirm','notes'].forEach(function(id){$(id).value='';});
+    all('input[name="hasMembership"]').forEach(function(el){el.checked=false;});
+    $('requestCorrection').checked=false; $('missionOther').classList.add('hidden');
+    $('contactPhoneWrap').classList.toggle('hidden',!state.existing);
+    $('matchedSpecialtyHint').classList.toggle('hidden',!state.existing);
+    if (profile) {
+      ['specialty','fullName','membershipNumber','residenceGovernorate','currentGovernorate'].forEach(function(id){$(id).value=text(profile[id]);});
+      var storedIssuing=text(profile.issuingCenter), issuingSelect=$('issuingCenter');
+      if(storedIssuing && !Array.prototype.some.call(issuingSelect.options,function(option){return option.value===storedIssuing;})) {
+        var storedIssuingOption=document.createElement('option'); storedIssuingOption.value=storedIssuing; storedIssuingOption.textContent=storedIssuing+' (محفوظ بالسجل)'; storedIssuingOption.setAttribute('data-stored','true'); issuingSelect.appendChild(storedIssuingOption);
+      }
+      issuingSelect.value=storedIssuing;
+      $('contactPhone').value=displayPhone(profile.contactPhone);
+      $('whatsapp').value=displayPhone(profile.whatsapp);
+      var gov=text(profile.currentGovernorate), select=$('currentGovernorate');
+      if(gov && !Array.prototype.some.call(select.options,function(option){return option.value===gov;})) {
+        var stored=document.createElement('option'); stored.value=gov; stored.textContent=gov+' (محفوظ بالسجل)'; stored.setAttribute('data-stored','true'); select.appendChild(stored);
+      }
+      select.value=gov;
+      var residence=text(profile.residenceGovernorate), residenceSelect=$('residenceGovernorate');
+      if(residence && !Array.prototype.some.call(residenceSelect.options,function(option){return option.value===residence;})) {
+        var storedResidence=document.createElement('option'); storedResidence.value=residence; storedResidence.textContent=residence+' (محفوظ بالسجل)'; storedResidence.setAttribute('data-stored','true'); residenceSelect.appendChild(storedResidence);
+      }
+      residenceSelect.value=residence;
+      $('whatsappConfirm').value=displayPhone(profile.whatsapp);
+      if(typeof profile.hasMembership==='boolean') all('input[name="hasMembership"]').forEach(function(el){el.checked=el.value===String(profile.hasMembership);});
+    }
+    syncProfileEdit();
+  }
+  function isOtherMission(value) { return value==='__OTHER__' || value==='أخرى' || value==='اخرى'; }
+  function validateStage2() { clearErrors(); var ok=true, existing=state.existing, correction=$('requestCorrection').checked, profile=requiredProfile(); var date=$('date').value; if (!date) { setError('date','اختر تاريخ الحضور.'); ok=false; } else if (state.config && ((state.config.minDate && date<state.config.minDate)||(state.config.maxDate && date>state.config.maxDate))) { setError('date','التاريخ خارج النطاق المتاح.'); ok=false; } ['specialty','fullName','missionName','whatsapp','whatsappConfirm'].forEach(function (k) { var val=k==='fullName'?normalize($(k).value):$(k).value.trim(); if (!val) { setError(k,'هذا الحقل مطلوب.'); ok=false; } }); if (profile && (!state.config.governorates.includes($('currentGovernorate').value))) { setError('currentGovernorate','اختر محافظة صحيحة.'); ok=false; } if (profile && !$('residenceGovernorate').value) { setError('residenceGovernorate','هذا الحقل مطلوب.'); ok=false; } var member=getRadio('hasMembership'); if (profile && !member) { setError('hasMembership','اختر حالة العضوية.'); ok=false; } if (profile && member==='true') { if (!normalize($('membershipNumber').value)) { setError('membershipNumber','أدخل رقم العضوية.'); ok=false; } if (!normalize($('issuingCenter').value)) { setError('issuingCenter','أدخل جهة الإصدار.'); ok=false; } } if (state.existing && $('contactPhone').value.trim() && !phone($('contactPhone').value)) { setError('contactPhone','صيغة رقم الهاتف غير صحيحة. اختر تعديل البيانات لتصحيحه.'); ok=false; } var p=phone($('whatsapp').value), pc=phone($('whatsappConfirm').value); if (!p && $('whatsapp').value) { setError('whatsapp','صيغة رقم واتساب غير صحيحة.'); ok=false; } if (!pc && $('whatsappConfirm').value) { setError('whatsappConfirm','صيغة رقم واتساب غير صحيحة.'); ok=false; } if (p && pc && p!==pc) { setError('whatsappConfirm','الرقمان غير متطابقين.'); ok=false; } if (isOtherMission($('missionName').value) && !normalize($('missionOther').value)) { setError('missionName','اكتب المهمة الأخرى.'); ok=false; } if (existing && !correction) { /* only attendance fields are required */ } return ok; }
+  function payload() { var member=getRadio('hasMembership'), mission=isOtherMission($('missionName').value)?normalize($('missionOther').value):$('missionName').value; var p = { date:$('date').value, specialty:$('specialty').value, fullName:normalize($('fullName').value), identityType:state.identity.identityType, identityNumber:state.identity.identityNumber, nationality:state.identity.nationality, visaValid:state.identity.visaValid, identityDetailsVersion:1, birthDate:state.identityDetails.birthDate, sex:state.identityDetails.sex, birthGovernorate:state.identityDetails.birthGovernorate, hasMembership:member===''?null:member==='true', membershipNumber:normalize($('membershipNumber').value), issuingCenter:normalize($('issuingCenter').value), residenceGovernorate:$('residenceGovernorate').value, currentGovernorate:$('currentGovernorate').value, missionName:mission, whatsapp:phone($('whatsapp').value), whatsappConfirm:phone($('whatsappConfirm').value), requestCorrection:state.existing && $('requestCorrection').checked, notes:normalize($('notes').value) }; if(state.existing && state.matchedProfile){p.profileVersion=1;p.contactPhone=$('contactPhone').value.trim()?phone($('contactPhone').value):'';if(p.hasMembership===false){p.membershipNumber='';p.issuingCenter='';}} return p; }
+  function addSummary(label,value) { var row=document.createElement('div'), dt=document.createElement('dt'), dd=document.createElement('dd'); row.className='summary-row'; dt.textContent=label; dd.textContent=text(value); row.appendChild(dt); row.appendChild(dd); $('summary').appendChild(row); }
+  function renderSummary() { var p=payload(), profile=requiredProfile(), rows=[['الجنسية',p.nationality],['نوع الهوية',p.identityType==='NATIONAL_ID'?'الرقم القومي المصري':'جواز السفر'],['رقم الهوية',p.identityNumber]]; if (p.identityType==='PASSPORT') rows.push(['حالة التأشيرة',p.visaValid==='YES'?'سارية':'غير سارية']); rows.push(['التاريخ',p.date],['التخصص',p.specialty],['الاسم',p.fullName]); if (profile) rows.push(['العضوية',p.hasMembership?'نعم':'لا']); else if (p.hasMembership || p.membershipNumber || p.issuingCenter) rows.push(['العضوية','نعم']); if (p.membershipNumber) rows.push(['رقم العضوية',p.membershipNumber]); if (p.issuingCenter) rows.push(['جهة الإصدار',p.issuingCenter]); if (profile) rows.push(['محافظة الإقامة',p.residenceGovernorate||'غير مدخلة']); rows.push(['المحافظة الحالية',p.currentGovernorate],['المهمة',p.missionName]); if(state.existing) rows.push(['رقم الهاتف المحفوظ',p.contactPhone||'غير مدخل']); rows.push(['رقم واتساب',p.whatsapp]); if (p.requestCorrection) rows.push(['طلب تصحيح','نعم']); if (p.notes) rows.push(['ملاحظات',p.notes]); $('summary').textContent=''; rows.forEach(function (x) { addSummary(x[0],x[1]); }); }
+  function setBusy(id,on) { $(id).classList.toggle('hidden',!on); }
+  function setIdentityBusy(on) { all('#stage1 input, #stage1 select, #stage1 button').forEach(function (el) { el.disabled=on; }); if(!on)syncIdentityFields(); }
+  function secureRequestId() { var c=window.crypto; if (c && typeof c.randomUUID==='function') return c.randomUUID(); if (c && typeof c.getRandomValues==='function') { var a=new Uint8Array(16); c.getRandomValues(a); a[6]=(a[6]&15)|64; a[8]=(a[8]&63)|128; var h=Array.prototype.map.call(a,function (b) { return ('0'+b.toString(16)).slice(-2); }).join(''); return h.slice(0,8)+'-'+h.slice(8,12)+'-'+h.slice(12,16)+'-'+h.slice(16,20)+'-'+h.slice(20); } throw new Error('لا يمكن إنشاء رقم طلب آمن على هذا الجهاز.'); }
+  function begin() { var v=validateIdentity(); if (!v || state.busy) return; state.busy=true; $('beginBtn').disabled=true; setIdentityBusy(true); setBusy('beginBusy',true); var details={identityDetailsVersion:1,birthDate:state.identityDetails.birthDate,sex:state.identityDetails.sex,birthGovernorate:state.identityDetails.birthGovernorate}; callServer('ercvBegin',{nonce:state.config.nonce,identityType:v.identityType,identityNumber:v.identityNumber,nationality:v.nationality,visaValid:v.visaValid,identityDetailsVersion:details.identityDetailsVersion,birthDate:details.birthDate,sex:details.sex,birthGovernorate:details.birthGovernorate,honeypot:$('hp1').value}).then(function (r) { if (!r || r.ok!==true) throw new Error(r && r.message || 'تعذر بدء الطلب.'); if(r.existing && (!r.profile || !r.profile.specialty)) throw new Error('تعذر تحميل بيانات السجل. أعد خطوة الهوية.'); state.identity=v; state.identityDetails=details; state.sessionToken=r.sessionToken; state.existing=!!r.existing; $('existingNote').classList.toggle('hidden',!state.existing); $('correctionWrap').classList.toggle('hidden',!state.existing); applyMatchedProfile(state.existing?r.profile:null); setStage(2); }).catch(function (e) { appError(e.message || 'تعذر الاتصال بالخدمة.',begin); }).finally(function () { state.busy=false; $('beginBtn').disabled=false; setIdentityBusy(false); setBusy('beginBusy',false); }); }
+  function submit() { if (state.busy) return; clearErrors(); if (!state.submissionSnapshot) { if (!validateStage2()) { setStage(2); return; } try { state.requestId=secureRequestId(); } catch (e) { appError(e.message); return; } state.submissionSnapshot=Object.freeze(payload()); } state.busy=true; $('submitBtn').disabled=true; $('back2Btn').disabled=true; state.submissionLocked=true; setBusy('submitBusy',true); callServer('ercvSubmit',{sessionToken:state.sessionToken,requestId:state.requestId,payload:state.submissionSnapshot,honeypot:$('hp2').value}).then(function (r) { if (r && r.ok===false && r.notAccepted===true) { state.submissionSnapshot=null; state.requestId=null; state.submissionLocked=false; appError(r.message||'لم يُقبل الطلب للتحقق، ويمكنك تعديل البيانات ثم المحاولة مرة أخرى.'); return; } if (!r || r.ok!==true) throw new Error(r && r.message || 'تعذر إرسال الطلب.'); var recorded=r.status==='recorded'; $('stage4Title').textContent=recorded?'تم تسجيل حضورك':'تم استلام طلبك للمراجعة'; $('receiptStatus').textContent=recorded?'تم التسجيل مباشرة للسجل المطابق':'معلق حتى اعتماد المشرف'; $('receiptMessage').textContent=text(r.message||'تم استلام الطلب.'); $('receiptCode').textContent=text(r.receipt||r.status||'—'); setStage(4); }).catch(function (e) { appError('تعذر تأكيد الإرسال. لم نسمح بتغيير البيانات؛ أعد المحاولة بنفس الطلب.',function(){ submit(); }); }).finally(function () { state.busy=false; $('submitBtn').disabled=false; $('back2Btn').disabled=state.submissionLocked; setBusy('submitBusy',false); }); }
+  function load() { callServer('ercvBootstrap').then(function (r) { if (!r || r.ok!==true) throw new Error(r&&r.message||'تعذر تحميل الإعدادات.'); if(r.paused===true){$('loading').classList.add('hidden');$('intro').classList.add('hidden');$('steps').classList.add('hidden');$('maintenanceMessage').textContent=text(r.message||'التسجيل متوقف مؤقتًا. لن نستقبل أو نحفظ بيانات الآن.');$('maintenance').classList.remove('hidden');return;} state.config=r; $('intro').textContent=text(r.title||'تسجيل المشاركة التطوعية والحضور'); $('date').min=text(r.minDate||''); $('date').max=text(r.maxDate||''); if (r.today && (!r.minDate || r.today>=r.minDate) && (!r.maxDate || r.today<=r.maxDate)) $('date').value=text(r.today); populate('specialty',r.specialties,'اختر التخصص'); populate('residenceGovernorate',r.governorates,'اختر المحافظة'); populate('currentGovernorate',r.governorates,'اختر المحافظة'); populate('issuingCenter',issuingChoices(r.governorates),'اختر الفرع الذي اصدر العضوية'); populate('missionName',r.missions,'اختر المهمة'); populate('nationality',r.nationalities,'اختر الجنسية'); syncIdentityFields(); if (r.logoUrl) { $('logo').src=text(r.logoUrl); $('logo').style.display='block'; } $('loading').classList.add('hidden'); setStage(1); }).catch(function(e){ $('loading').classList.add('hidden'); appError(e.message||'تعذر تحميل النموذج.',load); }); }
+  function syncIdentityFields() {
+    var nationality=$('nationality').value, previous=getRadio('identityType'), nationalId=document.querySelector('input[name="identityType"][value="NATIONAL_ID"]'), passportChoice=document.querySelector('input[name="identityType"][value="PASSPORT"]');
+    nationalId.disabled=state.busy || (!!nationality && nationality!=='مصري'); passportChoice.disabled=state.busy;
+    if (nationality && nationality!=='مصري' && previous==='NATIONAL_ID') { setError('identityType','الجنسية المختارة غير مصرية. استخدم جواز السفر.'); passportChoice.checked=true; $('identityNumber').value=''; }
+    var passport=getRadio('identityType')==='PASSPORT';
+    $('nationalityWrap').classList.toggle('hidden',!passport); $('nationality').disabled=state.busy || !passport; $('nationalitySearch').disabled=state.busy || !passport;
+    $('visaWrap').classList.toggle('hidden',!passport);
+    $('passportDetails').classList.toggle('hidden',!passport);
+    all('input[name="visaValid"]').forEach(function(el){el.disabled=state.busy || !passport;if(!passport)el.checked=false;});
+  }
+  function filterNationalities() { if(!state.config)return;var selected=$('nationality').value,q=normalize($('nationalitySearch').value),values=state.config.nationalities.filter(function(v){return v.indexOf(q)!==-1;});if(selected && values.indexOf(selected)<0)values.unshift(selected);populate('nationality',values,values.length?'اختر الجنسية':'لا توجد نتيجة');$('nationality').value=selected;syncIdentityFields(); }
+  document.querySelectorAll('input[name="identityType"]').forEach(function(el){el.addEventListener('change',function(){resetIdentityConfirmation();syncIdentityFields();localIdentityDetails();});});
+  $('identityNumber').addEventListener('input',function(){resetIdentityConfirmation();localIdentityDetails();});
+  ['birthDate','sex','birthGovernorate'].forEach(function(id){$(id).addEventListener('input',function(){resetIdentityConfirmation();localIdentityDetails();});$(id).addEventListener('change',function(){resetIdentityConfirmation();localIdentityDetails();});});
+  $('nationalitySearch').addEventListener('input',filterNationalities);
+  $('nationality').addEventListener('change',function(){setError('nationality','');setError('identityType','');resetIdentityConfirmation();syncIdentityFields();localIdentityDetails();});
+  all('input[name="visaValid"]').forEach(function(el){el.addEventListener('change',resetIdentityConfirmation);});
+  document.querySelectorAll('input[name="hasMembership"]').forEach(function(el){el.addEventListener('change',function(){ $('membershipDetails').classList.toggle('hidden',this.value!=='true'); });});
+  $('requestCorrection').addEventListener('change',syncProfileEdit);
+  $('missionName').addEventListener('change',function(){ $('missionOther').classList.toggle('hidden',!isOtherMission(this.value)); });
+  $('beginBtn').onclick=begin; $('reviewBtn').onclick=function(){ if(validateStage2()){renderSummary();setStage(3);} }; $('submitBtn').onclick=submit;
+  $('back1Btn').onclick=function(){ if (state.submissionLocked) return; state.sessionToken=null; state.identity=null; state.existing=false; state.matchedProfile=null; state.requestId=null; state.submissionSnapshot=null; state.submissionLocked=false; setStage(1); };
+  $('back2Btn').onclick=function(){ if (!state.submissionLocked) setStage(2); };
+  $('restartBtn').onclick=function(){ if(state.busy || state.stage!==4)return; state={config:null,identity:null,identityDetails:null,existing:false,matchedProfile:null,sessionToken:null,requestId:null,submissionSnapshot:null,submissionLocked:false,stage:0,busy:false}; all('input,select,textarea').forEach(function(el){if(el.type==='radio'||el.type==='checkbox')el.checked=false;else el.value='';el.disabled=false;el.readOnly=false;}); all('button').forEach(function(el){el.disabled=false;}); clearErrors(); applyMatchedProfile(null); ['summary','receiptMessage','receiptStatus','receiptCode'].forEach(function(id){$(id).textContent='';}); $('stage4Title').textContent='تم استلام طلبك'; $('identityAnalysis').textContent=''; $('identityAnalysis').classList.add('hidden'); ['beginBusy','stage2Busy','submitBusy','maintenance','existingNote','correctionWrap'].forEach(function(id){$(id).classList.add('hidden');}); ['intro','steps','loading'].forEach(function(id){$(id).classList.remove('hidden');}); $('logo').removeAttribute('src'); $('logo').style.display='none'; syncIdentityFields(); setStage(0); load(); };
+  syncIdentityFields();localIdentityDetails();window.addEventListener('pageshow',syncIdentityFields);
+  var stuckReload = $('stuckReloadBtn'); if (stuckReload) stuckReload.onclick = function () { location.reload(); };
+  load();
+}());
+</script>
+</body>
+</html>
